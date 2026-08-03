@@ -16,7 +16,7 @@ public class OpenApiConfig {
 
     private static final Logger log = LoggerFactory.getLogger(OpenApiConfig.class);
 
-    @Value("${server.port:8089}")
+    @Value("${server.port:8078}")
     private String serverPort;
 
     @Value("${server.servlet.context-path:}")

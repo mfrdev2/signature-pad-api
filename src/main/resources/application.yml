@@ -1,0 +1,40 @@
+server:
+  port: 8078
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: signature-pad-api
+
+# FP430S Hardware Configuration
+signature:
+  pad:
+    # Default capture timeout in milliseconds (e.g. 60000 = 60s)
+    timeout-ms: 60000
+    # Encryption type (0 = standard unencrypted, matches demo code)
+    encrypt-type: 0
+    # Save captured image file to local disk (optional)
+    save-to-disk: false
+    # Output directory for saving images if save-to-disk is enabled
+    output-dir: "C:/temp/signatures"
+    # Optional custom path to FP430S.dll (leave empty to use bundled DLL)
+    dll-path: ""
+
+# OpenAPI / Swagger UI
+springdoc:
+  api-docs:
+    enabled: false
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: false
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+
+logging:
+  level:
+    root: INFO
+    com.kiosk.signature: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
